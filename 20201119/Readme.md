@@ -1,5 +1,5 @@
 # Bang C Hello world
-有两种编程方式  
+有两种编程方式，$NEUWARE_HOME是neuware的安装路径  
 ## 普通异构编程  
 main.cpp 和 foo2.mlu 联合编译  
 ```
