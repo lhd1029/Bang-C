@@ -1,3 +1,0 @@
-__mlu_entry__ void foo2(half val) {
- __bang_printf("Hello, world!");
-}
