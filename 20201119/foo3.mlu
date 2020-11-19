@@ -2,14 +2,18 @@
 #include <stdio.h>
 
 __mlu_entry__ void foo3(half val) {
+  __bang_printf("%d\n", clusterId);
   __bang_printf("%f\n", (float)val);
 }
 
 int foo3() {
-  // ...
+  cnrtInit(0);
+  cnrtDev_t dev;
+  cnrtGetDeviceHandle(&dev, 0);
+  cnrtSetCurrentDevice(dev);
   half val = 3.14h;
-  cnrtDim3_t dim = {4, 1, 1};
-  cnrtFunctionType_t ktype = CNRT_FUNC_TYPE_UNION1;
+  cnrtDim3_t dim = {8, 1, 1};
+  cnrtFunctionType_t ktype = CNRT_FUNC_TYPE_UNION2;
   cnrtQueue_t queue;
   CNRT_CHECK(cnrtCreateQueue(&queue));
   foo3<<<dim, ktype, queue>>>(val);
