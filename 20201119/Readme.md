@@ -7,7 +7,8 @@ cncc --bang-device-only --bang-mlu-arch=MLU270 -c foo2.mlu -o foo2.o
 g++ -o a.output main.cpp $NEUWARE_HOME/lib64/libcndrv.so foo2.o -I $NEUWARE_HOME/include -L $NEUWARE_HOME/lib64 -lcnrt
 ```
 ## 混合编程
-```
+```shell
 cncc --bang-mlu-arch=MLU270 foo3.mlu -o a.out
+cncc --bang-mlu-arch=MLU270 foo3.mlu -S # 生成中间代码mlisa
 ```
 编译好的a.out和a.output均可直接运行
